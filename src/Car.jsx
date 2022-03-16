@@ -1,6 +1,6 @@
 import React from "react";
 
-const Person = (props) => {
+const Car = (props) => {
   return (
     <>
       <li>
@@ -14,4 +14,4 @@ const Person = (props) => {
   );
 };
 
-export default Person;
+export default Car;

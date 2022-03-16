@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import Person from "./Person";
+import Car from "./Car";
+
 
 const App = () => {
   const [cars, setCars] = useState([
@@ -13,11 +14,12 @@ const App = () => {
   const handleDelete = (id) => {
     const newCars = [...cars];
     const index = newCars.findIndex((car) => car.id === id);
+    cars.splice(index, 1);
     setCars([...cars]);
   };
 
   const carsList = cars.map((car) => (
-    <Person
+    <Car
       key={car.id}
       name={car.name}
       delete={handleDelete.bind(this, car.id)}
