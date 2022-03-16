@@ -3,7 +3,6 @@ import "./App.css";
 import Person from "./Person";
 
 const App = () => {
-
   const [cars, setCars] = useState([
     { id: 1, name: "Fiat" },
     { id: 2, name: "BMW" },
@@ -14,18 +13,18 @@ const App = () => {
   const handleDelete = (id) => {
     const newCars = [...cars];
     const index = newCars.findIndex((car) => car.id === id);
-    console.log(index);
-    cars.splice(index, 1);
-    setCars([...cars])
-    };
+    setCars([...cars]);
+  };
 
-  return (
-    <ul>
-      {cars.map((car) => (
-        <Person key={car.id} name={car.name} delete={handleDelete.bind(this, car.id)} />
-      ))}
-    </ul>
-  );
+  const carsList = cars.map((car) => (
+    <Person
+      key={car.id}
+      name={car.name}
+      delete={handleDelete.bind(this, car.id)}
+    />
+  ));
+
+  return <ul>{carsList}</ul>;
 };
 
 export default App;
